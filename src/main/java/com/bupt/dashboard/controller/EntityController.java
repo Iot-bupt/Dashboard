@@ -27,13 +27,13 @@ public class EntityController {
         return insertEntity.toString();
     }
 
-    @RequestMapping(value = "/{entity_type}", method = RequestMethod.GET)
-    public List<Entity> getEntityByType(@PathVariable("dataType") String dataType){
-        List<Entity> entities = entityService.getEntityByType(dataType);
+    @RequestMapping(value = "/getByType/{entity_type}", method = RequestMethod.GET)
+    public List<Entity> getEntityByType(@PathVariable("entity_type") String entity_type){
+        List<Entity> entities = entityService.getEntityByType(entity_type);
         return entities;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
     public Entity getEntityById(@PathVariable("id") Integer id){
         Entity entity = entityService.getEntityById(id);
         return entity;

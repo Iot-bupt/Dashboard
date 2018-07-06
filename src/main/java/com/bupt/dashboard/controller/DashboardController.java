@@ -24,9 +24,19 @@ public class DashboardController {
         return insertDashboard.toString();
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
     public Dashboard getDashboardById(@PathVariable("id") Integer id){
         Dashboard dashboard = dashboardService.getDashboardById(id);
         return dashboard;
+    }
+
+    @RequestMapping(value = "/removeAll", method = RequestMethod.DELETE)
+    public void removeAllDashboard(){
+        dashboardService.removeAllDashboard();
+    }
+
+    @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
+    public void removeAllDashboardById(@PathVariable("id") Integer id){
+        dashboardService.removeDashboardById(id);
     }
 }
