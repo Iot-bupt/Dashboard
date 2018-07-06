@@ -18,13 +18,13 @@ public class EntityController {
     EntityService entityService;
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String insertEntity(@RequestBody String entity){
+    public Entity insertEntity(@RequestBody String entity){
 
         JsonObject jsonObj = (JsonObject)new JsonParser().parse(entity);
         Entity addEntity = new Entity(jsonObj);
         Entity insertEntity = entityService.insertEntity(addEntity);
 
-        return insertEntity.toString();
+        return insertEntity;
     }
 
     @RequestMapping(value = "/getByType/{entity_type}", method = RequestMethod.GET)

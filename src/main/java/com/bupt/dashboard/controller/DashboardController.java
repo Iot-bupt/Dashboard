@@ -15,13 +15,13 @@ public class DashboardController {
     DashboardService dashboardService;
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String insertDashboard(@RequestBody String dashboard){
+    public Dashboard insertDashboard(@RequestBody String dashboard){
 
         JsonObject jsonObj = (JsonObject)new JsonParser().parse(dashboard);
         Dashboard addDashboard = new Dashboard(jsonObj);
         Dashboard insertDashboard = dashboardService.insertDashboard(addDashboard);
 
-        return insertDashboard.toString();
+        return insertDashboard;
     }
 
     @RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
