@@ -19,6 +19,6 @@ public class Dashboard {
     public Dashboard(JsonObject jsonObject){
         this.name = jsonObject.get("name").getAsString();
         this.tenant_id = jsonObject.get("tenant_id").getAsInt();
-        //this.customer_id = jsonObject.get("customer_id").getAsInt();
+        this.customer_id = jsonObject.get("customer_id").getAsInt();
     }
 }
