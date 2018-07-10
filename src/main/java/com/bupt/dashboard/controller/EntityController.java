@@ -33,6 +33,12 @@ public class EntityController {
         return entities;
     }
 
+    @RequestMapping(value = "/getByDashboardId/{dashboardId}", method = RequestMethod.GET)
+    public List<Entity> getAllEntity(@PathVariable("dashboardId") Integer dashboardId){
+        List<Entity> entities = entityService.getByDashboard(dashboardId);
+        return entities;
+    }
+
     @RequestMapping(value = "/getByType/{entity_type}", method = RequestMethod.GET)
     public List<Entity> getEntityByType(@PathVariable("entity_type") String entity_type){
         List<Entity> entities = entityService.getEntityByType(entity_type);

@@ -28,4 +28,7 @@ public interface EntityMapper {
     @Select("SELECT * FROM widget_entity WHERE entity_type = #{entity_type}")
     List<Entity> getEntityByType(@Param("entity_type") String entity_type);
 
+    @Select("SELECT * FROM widget_entity WHERE dashboard_id = #{dashboard_id}")
+    List<Entity> getEntityByDashboard(@Param("dashboard_id") Integer dashboard_id);
+
 }

@@ -37,4 +37,8 @@ public class EntityService {
     public void removeEntityById(Integer id){
         this.entityMapper.removeEntityById(id);
     }
+
+    public List<Entity> getByDashboard(Integer dashboard_id){
+        return this.entityMapper.getEntityByDashboard(dashboard_id);
+    }
 }
