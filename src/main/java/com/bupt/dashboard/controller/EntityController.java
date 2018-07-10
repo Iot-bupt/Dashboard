@@ -27,6 +27,12 @@ public class EntityController {
         return insertEntity;
     }
 
+    @RequestMapping(value = "/getAllEntity", method = RequestMethod.GET)
+    public List<Entity> getAllEntity(){
+        List<Entity> entities = entityService.getAllEntity();
+        return entities;
+    }
+
     @RequestMapping(value = "/getByType/{entity_type}", method = RequestMethod.GET)
     public List<Entity> getEntityByType(@PathVariable("entity_type") String entity_type){
         List<Entity> entities = entityService.getEntityByType(entity_type);

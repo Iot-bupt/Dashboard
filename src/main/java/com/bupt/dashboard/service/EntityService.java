@@ -18,6 +18,10 @@ public class EntityService {
         return entity;
     }
 
+    public List<Entity> getAllEntity(){
+        return this.entityMapper.getAllEntity();
+    }
+
     public List<Entity> getEntityByType(String entity_type){
         return this.entityMapper.getEntityByType(entity_type);
     }

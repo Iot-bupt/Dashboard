@@ -3,6 +3,8 @@ package com.bupt.dashboard.mapper;
 import com.bupt.dashboard.entity.Dashboard;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface DashboardMapper {
 
@@ -11,10 +13,13 @@ public interface DashboardMapper {
     int addDashboard(Dashboard dashboard);
 
     @Delete("DELETE FROM dashboard")
-    void removeAllDashbaord();
+    void removeAllDashboard();
 
     @Delete("DELETE FROM dashboard WHERE id = #{id}")
     void removeDashboardById(@Param("id") Integer id);
+
+    @Select("SELECT * FROM dashboard")
+    List<Dashboard> getDashboards();
 
     @Select("SELECT * FROM dashboard WHERE id = #{id}")
     Dashboard getDashboardById(@Param("id") Integer id);

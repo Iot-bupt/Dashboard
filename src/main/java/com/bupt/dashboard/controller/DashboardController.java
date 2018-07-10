@@ -7,6 +7,8 @@ import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/dashboard")
 public class DashboardController {
@@ -28,6 +30,12 @@ public class DashboardController {
     public Dashboard getDashboardById(@PathVariable("id") Integer id){
         Dashboard dashboard = dashboardService.getDashboardById(id);
         return dashboard;
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<Dashboard> getDashboards(){
+        List<Dashboard> dashboards = dashboardService.getDashboards();
+        return dashboards;
     }
 
     @RequestMapping(value = "/removeAll", method = RequestMethod.DELETE)
