@@ -15,7 +15,7 @@ public class Entity {
     private String entity_type;
 
 
-    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type, Long startTime, Long endTime){
+    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type){
         this.id = id;
         this.dashboard_id = dashboard_id;
         this.device_id = device_id;
