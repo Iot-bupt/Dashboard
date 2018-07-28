@@ -5,6 +5,7 @@ import com.bupt.dashboard.service.DashboardService;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class DashboardController {
     @Autowired
     DashboardService dashboardService;
 
+    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Dashboard insertDashboard(@RequestBody String dashboard){
 
@@ -26,23 +28,27 @@ public class DashboardController {
         return insertDashboard;
     }
 
+    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
     @RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
     public Dashboard getDashboardById(@PathVariable("id") Integer id){
         Dashboard dashboard = dashboardService.getDashboardById(id);
         return dashboard;
     }
 
+    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public List<Dashboard> getDashboards(){
         List<Dashboard> dashboards = dashboardService.getDashboards();
         return dashboards;
     }
 
+    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
     @RequestMapping(value = "/removeAll", method = RequestMethod.DELETE)
     public void removeAllDashboard(){
         dashboardService.removeAllDashboard();
     }
 
+    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
     public void removeAllDashboardById(@PathVariable("id") Integer id){
         dashboardService.removeDashboardById(id);

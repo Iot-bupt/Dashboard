@@ -23,3 +23,13 @@ mybatis:
     default-executor-type: reuse
     default-statement-timeout: 25000
   type-aliases-package: org.spring.springboot.domain
+
+account:
+  host: account
+  port: 8400
+  check_url: http://account:8400/api/v1/account/check_token
+  login_url: http://account:8400/api/v1/account/login
+  client_id: client_2
+  client_secret: 123456
+  internal_client_id: client_1
+  internal_client_secret: 123456
