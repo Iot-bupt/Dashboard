@@ -10,7 +10,7 @@ public interface DashboardMapper {
 
     @Insert("INSERT INTO dashboard (tenant_id, customer_id, name) " + "VALUES (#{tenant_id}, #{customer_id}, #{name})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    int addDashboard(Dashboard dashboard);
+    Dashboard addDashboard(Dashboard dashboard);
 
     @Delete("DELETE FROM dashboard")
     void removeAllDashboard();
