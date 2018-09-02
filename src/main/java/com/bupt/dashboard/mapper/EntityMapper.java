@@ -11,7 +11,7 @@ public interface EntityMapper {
     @Insert("INSERT INTO widget_entity (dashboard_id, device_id, name, entity_type) " +
             "VALUES (#{dashboard_id}, #{device_id}, #{name}, #{entity_type})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    Entity addEntity(Entity entity);
+    int addEntity(Entity entity);
 
     @Delete("DELETE FROM widget_entity")
     void removeAllEntity();
