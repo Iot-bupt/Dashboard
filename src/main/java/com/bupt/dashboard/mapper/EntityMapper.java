@@ -13,6 +13,9 @@ public interface EntityMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     int addEntity(Entity entity);
 
+    @Update("UPDATE widget_entity SET position = #{position}, name = #{name} WHERE id = #{id}")
+    void updateEntity(@Param("id") Integer id, @Param("position") String position, @Param("name") String name);
+
     @Delete("DELETE FROM widget_entity")
     void removeAllEntity();
 

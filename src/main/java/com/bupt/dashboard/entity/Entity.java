@@ -27,6 +27,7 @@ public class Entity {
     }
 
     public Entity(JsonObject jsonObject){
+        this.id = jsonObject.get("id").getAsInt();
         this.dashboard_id = jsonObject.get("dashboard_id").getAsInt();
         this.device_id = jsonObject.get("device_id").getAsString();
         this.name = jsonObject.get("name").getAsString();

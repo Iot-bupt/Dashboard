@@ -27,6 +27,14 @@ public class EntityController {
         return insertEntity;
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public void updateEntity(@RequestBody String entity){
+
+        JsonObject jsonObj = (JsonObject)new JsonParser().parse(entity);
+        Entity addEntity = new Entity(jsonObj);
+        entityService.updateEntity(addEntity);
+    }
+
     @RequestMapping(value = "/getAllEntity", method = RequestMethod.GET)
     public List<Entity> getAllEntity(){
         List<Entity> entities = entityService.getAllEntity();
