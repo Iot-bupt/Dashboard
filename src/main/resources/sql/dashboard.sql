@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `widget_entity` (
 	`device_id` varchar(31),
 	`name` varchar(31),
 	`entity_type` varchar(31),
+	`position` varchar(255),
 	PRIMARY KEY(`id`),
 	KEY `relation_dashboardId` (`dashboard_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
