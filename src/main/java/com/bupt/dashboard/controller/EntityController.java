@@ -31,7 +31,8 @@ public class EntityController {
     public void updateEntity(@RequestBody String entity){
 
         JsonObject jsonObj = (JsonObject)new JsonParser().parse(entity);
-        Entity addEntity = new Entity(jsonObj);
+        Integer id = jsonObj.get("id").getAsInt();
+        Entity addEntity = new Entity(jsonObj, id);
         entityService.updateEntity(addEntity);
     }
 

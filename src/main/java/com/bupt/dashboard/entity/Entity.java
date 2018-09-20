@@ -36,4 +36,14 @@ public class Entity {
         this.diffX = jsonObject.get("diffX").getAsString();
         this.diffY = jsonObject.get("diffY").getAsString();
     }
+
+    public Entity(JsonObject updataJsonObject, Integer id){
+        this.id = id;
+        this.dashboard_id = updataJsonObject.get("dashboard_id").getAsInt();
+        this.device_id = updataJsonObject.get("device_id").getAsString();
+        this.name = updataJsonObject.get("name").getAsString();
+        this.entity_type = updataJsonObject.get("entity_type").getAsString();
+        this.diffX = updataJsonObject.get("diffX").getAsString();
+        this.diffY = updataJsonObject.get("diffY").getAsString();
+    }
 }
