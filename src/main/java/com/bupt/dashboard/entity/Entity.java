@@ -13,25 +13,27 @@ public class Entity {
     private String device_id;
     private String name;
     private String entity_type;
-    private String position;
+    private String diffX;
+    private String diffY;
 
 
-    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type, String position){
+    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type, String diffX, String diffY){
         this.id = id;
         this.dashboard_id = dashboard_id;
         this.device_id = device_id;
         this.name = name;
         this.entity_type = entity_type;
-        this.position = position;
+        this.diffX = diffX;
+        this.diffY = diffY;
 
     }
 
     public Entity(JsonObject jsonObject){
-        this.id = jsonObject.get("id").getAsInt();
         this.dashboard_id = jsonObject.get("dashboard_id").getAsInt();
         this.device_id = jsonObject.get("device_id").getAsString();
         this.name = jsonObject.get("name").getAsString();
         this.entity_type = jsonObject.get("entity_type").getAsString();
-        this.position = jsonObject.get("position").getAsString();
+        this.diffX = jsonObject.get("diffX").getAsString();
+        this.diffY = jsonObject.get("diffY").getAsString();
     }
 }
