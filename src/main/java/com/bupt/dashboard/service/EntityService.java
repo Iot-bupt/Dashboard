@@ -18,6 +18,10 @@ public class EntityService {
         return entity;
     }
 
+    public void updateEntity(Entity entity){
+        entityMapper.updateEntity(entity.getId(), entity.getDiffX(), entity.getDiffY(), entity.getName());
+    }
+
     public List<Entity> getAllEntity(){
         return this.entityMapper.getAllEntity();
     }
