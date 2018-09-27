@@ -17,7 +17,7 @@ public class DashboardController {
     @Autowired
     DashboardService dashboardService;
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
+    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'insertDashboard')")
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Dashboard insertDashboard(@RequestBody String dashboard){
 
@@ -28,29 +28,29 @@ public class DashboardController {
         return insertDashboard;
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
+    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getDashboardById')")
     @RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
     public Dashboard getDashboardById(@PathVariable("id") Integer id){
         Dashboard dashboard = dashboardService.getDashboardById(id);
         return dashboard;
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
+    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getDashboards')")
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public List<Dashboard> getDashboards(){
         List<Dashboard> dashboards = dashboardService.getDashboards();
         return dashboards;
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
+    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'removeAllDashboard')")
     @RequestMapping(value = "/removeAll", method = RequestMethod.DELETE)
     public void removeAllDashboard(){
         dashboardService.removeAllDashboard();
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasAnyAuthority('TENANT_ADMIN', 'CUSTOMER_USER')")
+    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'removeDashboardById')")
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
-    public void removeAllDashboardById(@PathVariable("id") Integer id){
+    public void removeDashboardById(@PathVariable("id") Integer id){
         dashboardService.removeDashboardById(id);
     }
 }
