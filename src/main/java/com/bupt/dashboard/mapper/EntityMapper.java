@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface EntityMapper {
 
-    @Insert("INSERT INTO widget_entity (dashboard_id, device_id, name, entity_type, diffX, diffY) " +
-            "VALUES (#{dashboard_id}, #{device_id}, #{name}, #{entity_type}, #{diffX}, #{diffY})")
+    @Insert("INSERT INTO widget_entity (dashboard_id, device_id, name, entity_type, diffX, diffY, property) " +
+            "VALUES (#{dashboard_id}, #{device_id}, #{name}, #{entity_type}, #{diffX}, #{diffY}, #{property})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     int addEntity(Entity entity);
 

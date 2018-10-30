@@ -15,9 +15,10 @@ public class Entity {
     private String entity_type;
     private String diffX;
     private String diffY;
+    private String property;
 
 
-    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type, String diffX, String diffY){
+    public Entity(Integer id, Integer dashboard_id, String device_id, String name, String entity_type, String diffX, String diffY, String property){
         this.id = id;
         this.dashboard_id = dashboard_id;
         this.device_id = device_id;
@@ -25,6 +26,7 @@ public class Entity {
         this.entity_type = entity_type;
         this.diffX = diffX;
         this.diffY = diffY;
+        this.property = property;
 
     }
 
@@ -35,6 +37,7 @@ public class Entity {
         this.entity_type = jsonObject.get("entity_type").getAsString();
         this.diffX = jsonObject.get("diffX").getAsString();
         this.diffY = jsonObject.get("diffY").getAsString();
+        this.property = jsonObject.get("property").getAsJsonArray().toString();
     }
 
     public Entity(JsonObject updataJsonObject, Integer id){
@@ -45,5 +48,6 @@ public class Entity {
         this.entity_type = updataJsonObject.get("entity_type").getAsString();
         this.diffX = updataJsonObject.get("diffX").getAsString();
         this.diffY = updataJsonObject.get("diffY").getAsString();
+        this.property = updataJsonObject.get("property").getAsJsonArray().toString();
     }
 }

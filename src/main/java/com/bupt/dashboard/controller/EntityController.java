@@ -18,7 +18,7 @@ public class EntityController {
     @Autowired
     EntityService entityService;
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'insertEntity')")
+    //@PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'insertEntity')")
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Entity insertEntity(@RequestBody String entity){
 
@@ -39,14 +39,14 @@ public class EntityController {
         entityService.updateEntity(addEntity);
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getAllEntity')")
+    //@PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getAllEntity')")
     @RequestMapping(value = "/getAllEntity", method = RequestMethod.GET)
     public List<Entity> getAllEntity(){
         List<Entity> entities = entityService.getAllEntity();
         return entities;
     }
 
-    @PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getAllEntityByDashboardId')")
+    //@PreAuthorize("#oauth2.hasScope('all') OR hasPermission(null ,'getAllEntityByDashboardId')")
     @RequestMapping(value = "/getByDashboardId/{dashboardId}", method = RequestMethod.GET)
     public List<Entity> getAllEntityByDashboardId(@PathVariable("dashboardId") Integer dashboardId){
         List<Entity> entities = entityService.getByDashboard(dashboardId);
